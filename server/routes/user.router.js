@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var Pitchers = require('../models/pitchers.js');
+var path = require('path');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {

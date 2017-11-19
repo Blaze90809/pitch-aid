@@ -1,6 +1,44 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
 
+
+
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
 </div>
+<h1>Add your pitcher!</h1>
+    <form ng-submit="uc.addPitchers(pitcher)">
+        <label>Name:
+            <input type="text" ng-model="pitcher.name" />
+        </label>
+        <br />
+        <label>Innings Pitched:
+            <input type="number" ng-model="pitcher.inningsPitched" />
+        </label>
+        <br />
+        <label>Starts:
+            <input type="number" ng-model="pitcher.starts" />
+        </label>
+        <br />
+        <label>Strikeouts:
+            <input type="number" ng-model="pitcher.strikeouts" />
+        </label>
+        <br />
+        <label>Earned Runs:
+            <input type="number" ng-model="pitcher.earnedRuns" />
+        </label>
+        <br />
+        <label>Walks:
+            <input type="number" ng-model="pitcher.walks" />
+        </label>
+        <br />
+        <label>Wins:
+            <input type="number" ng-model="pitcher.wins" />
+        </label>
+        <br />
+        <label>Losses:
+            <input type="number" ng-model="pitcher.losses" />
+        </label>
+        <br />
+        <button class="btn btn-primary">Add Listing</button>
+    </form>

@@ -1,17 +1,20 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt');
-var SALT_WORK_FACTOR = 10;
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+let bcrypt = require('bcrypt');
+let SALT_WORK_FACTOR = 10;
 
-// Mongoose Schema
-var UserSchema = new Schema({
+
+let ObjectId = mongoose.Schema.Types.ObjectId;
+// This is the User Schema.
+let UserSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    pitcherId: ObjectId
 });
 
 // Called before adding a new user to the DB. Encrypts password.
 UserSchema.pre('save', function(next) {
-    var user = this;
+    let user = this;
 
     if(!user.isModified('password')) {
       return next();
@@ -45,5 +48,6 @@ UserSchema.methods.comparePassword = function(candidatePassword, callback) {
     });
 };
 
+let User = mongoose.model('User', UserSchema);
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = User;

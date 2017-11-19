@@ -6,6 +6,7 @@ myApp.service('UserService', function($http, $location){
   self.getuser = function(){
     console.log('UserService -- getuser');
     $http.get('/user').then(function(response) {
+      console.log(response)
         if(response.data.username) {
             // user has a curret session on the server
             self.userObject.userName = response.data.username;
@@ -28,4 +29,15 @@ myApp.service('UserService', function($http, $location){
       $location.path("/home");
     });
   }
+
+
+    //This route will POST pitchers to MongoDB.
+    self.addPitchers = (pitcher) => {
+      console.log('Pitcher: ', pitcher);
+      $http.post('/addpitch/add', pitcher).then((response) => {
+          console.log('Pitchers added', response)
+      }).catch((response) => {
+          console.log('Error adding pitchers.')
+      })
+  } //End POST route
 });
