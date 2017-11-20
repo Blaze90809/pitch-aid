@@ -2,7 +2,7 @@ myApp.service('UserService', function($http, $location){
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
-  self.pitchers = {};
+  self.pitchers = {data: []};
  
 
   self.getuser = function(){
@@ -35,23 +35,44 @@ myApp.service('UserService', function($http, $location){
   //This GET route will get the pitcher's names and data
 self.getPitchers = () => {
   $http.get('/user/getpitchers').then((response) => {
-    console.log(response.data);
+    pitchers = response.data;
     console.log(response.data[0].statistics);
-    self.pitchers.data = response.data;
-      
+    console.log(response.data[0].statistics[2].strikeouts);
+    self.fantasyPoints(pitchers);
   }).catch((response) => {
       console.log('Error getting pitchers')
   })
 }; //End GET route
 self.getPitchers();
 
-console.log(self.pitchers.data);
+//This is the function that calculates total and average fantasy points per pitcher.
+self.fantasyPoints = (pitchers) => {
+   for (let i=0; i < pitchers.length; i++){
+     console.log(pitchers[i].name)
+     pitchers[i].name = pitchers[i].name;
+     pitchers[i].inningsPitched = pitchers[i].statistics[0].inningsPitched;
+     pitchers[i].starts = pitchers[i].statistics[1].starts;
+     pitchers[i].strikeouts = pitchers[i].statistics[2].strikeouts;
+     pitchers[i].earnedRuns = pitchers[i].statistics[3].earnedRuns;
+     pitchers[i].walks = pitchers[i].statistics[4].walks;
+     pitchers[i].wins = pitchers[i].statistics[5].wins;
+     pitchers[i].losses = pitchers[i].statistics[6].losses;
+     pitchers[i].hits = pitchers[i].statistics[7].hits;
+     pitchers[i].fantasyPoints = ((pitchers[i].inningsPitched * 3) + (pitchers[i].wins * 5) + (pitchers[i].hits * -1) + (pitchers[i].earnedRuns * -2) + (pitchers[i].losses * -5) + (pitchers[i].strikeouts * 1) + (pitchers[i].walks * -1));
+     pitchers[i].averagePoints = (pitchers[i].fantasyPoints / pitchers[i].starts)
+     self.pitchers.data.push(pitchers[i]);
+     console.log(self.pitchers.data);
+   }
+} //End fantasy pitcher routes.
+
+
 
     //This route will POST pitchers to MongoDB.
     self.addPitchers = (pitcher) => {
       console.log('Pitcher: ', pitcher);
       $http.post('/addpitch', pitcher).then((response) => {
           console.log('Pitchers added', response);
+          self.pitchers.data = [];
           self.getPitchers();
       }).catch((response) => {
           console.log('Error adding pitchers.')
