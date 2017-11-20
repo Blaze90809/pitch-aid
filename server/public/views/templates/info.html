@@ -5,14 +5,16 @@
   <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data">
       <h2>{{name.name}}</h2>
     <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
-      Innings Pitched: {{name.statistics[0].inningsPitched}}
-      Starts: {{name.statistics[1].starts}}
-      Strikeouts: {{name.statistics[2].strikeouts}}
-      Earned Runs: {{name.statistics[3].earnedRuns}}
-      Walks: {{name.statistics[4].walks}}
-      Wins: {{name.statistics[5].wins}}
-      Losses: {{name.statistics[6].losses}}
-      Hits: {{name.statistics[7].hits}}
+      <b>Innings Pitched:</b> {{name.inningsPitched}},
+      <b>Starts:</b> {{name.statistics[1].starts}},
+      <b>Strikeouts:</b> {{name.statistics[2].strikeouts}},
+      <b>Earned Runs:</b> {{name.statistics[3].earnedRuns}},
+      <b>Walks:</b> {{name.statistics[4].walks}},
+      <b>Wins:</b> {{name.statistics[5].wins}},
+      <b>Losses:</b> {{name.statistics[6].losses}},
+      <b>Hits:</b> {{name.statistics[7].hits}},
+      <b>Total Fantasy Points:</b>{{name.fantasyPoints}},
+      <b>Points Per Start:</b>{{name.averagePoints}}
     </div>
   </div>
   </p>
