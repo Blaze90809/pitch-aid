@@ -22,6 +22,18 @@ router.get('/', function(req, res) {
   }
 });
 
+//This route will get pitchers from the DB.
+router.get('/getpitchers', function(req, res) {
+  console.log('Get pitchers');
+     Pitchers.find({}, function(err, pitchers){
+       if(err){
+         res.sendStatus(500);
+       } else {
+         res.send(pitchers);
+       }
+     })
+}); //End Pitchers route.
+
 // clear all server session information about this user
 router.get('/logout', function(req, res) {
   // Use passport's built-in method to log out the user

@@ -1,9 +1,9 @@
 let express = require('express');
 let router = express.Router();
-let Pitchers = require('../models/pitchers.js');
+let Pitcher = require('../models/pitchers.js');
 let path = require('path');
 
-router.post('/add', function(req, res) {
+router.post('/', function(req, res) {
     console.log('Adding pitcher', req.body);
     var pitcherToSave = {
        name: req.body.name,
@@ -18,7 +18,7 @@ router.post('/add', function(req, res) {
        ]
     }
 
-    Pitchers.create(pitcherToSave, function(err, post){
+    Pitcher.create(pitcherToSave, function(err, post){
         console.log('Create Pitcher');
         if(err){
             console.log('Error posting pitcher');

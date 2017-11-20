@@ -1,6 +1,18 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <p>
-    In Info
+  <!-- {{ic.userService.pitchers.data}} -->
+  <h1>Check out your pitchers</h1>
+  <div ng-repeat="name in ic.userService.pitchers.data">
+      <strong>{{name.name}}</strong><br>
+    <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
+      Innings Pitched: {{name.statistics[0].inningsPitched}}
+      Starts: {{name.statistics[1].starts}}
+      Strikeouts: {{name.statistics[2].strikeouts}}
+      Earned Runs: {{name.statistics[3].earnedRuns}}
+      Walks: {{name.statistics[4].walks}}
+      Wins: {{name.statistics[5].wins}}
+      Losses: {{name.statistics[6].losses}}
+    </div>
+  </div>
   </p>
 </div>
