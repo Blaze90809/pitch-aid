@@ -2,8 +2,8 @@
 <div class="container">
   <!-- {{ic.userService.pitchers.data}} -->
   <h1>Check out your pitchers</h1>
-  <div ng-repeat="name in ic.userService.pitchers.data">
-      <strong>{{name.name}}</strong><br>
+  <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data">
+      <h2>{{name.name}}</h2>
     <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
       Innings Pitched: {{name.statistics[0].inningsPitched}}
       Starts: {{name.statistics[1].starts}}
@@ -12,6 +12,7 @@
       Walks: {{name.statistics[4].walks}}
       Wins: {{name.statistics[5].wins}}
       Losses: {{name.statistics[6].losses}}
+      Hits: {{name.statistics[7].hits}}
     </div>
   </div>
   </p>

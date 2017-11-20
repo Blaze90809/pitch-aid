@@ -14,7 +14,8 @@ router.post('/', function(req, res) {
            {earnedRuns: req.body.earnedRuns},
            {walks: req.body.walks},
            {wins: req.body.wins},
-           {losses: req.body.losses}
+           {losses: req.body.losses},
+           {hits: req.body.hits}
        ]
     }
 

@@ -11,7 +11,8 @@ let StatisticsSchema = new Schema({
     earnedRuns: Number,
     walks: Number,
     wins: Number,
-    losses: Number
+    losses: Number,
+    hits: Number
 })
 
 //This Schema will store the pitchers' information.
