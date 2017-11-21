@@ -3,10 +3,12 @@ let router = express.Router();
 let Pitcher = require('../models/pitchers.js');
 let path = require('path');
 
-router.post('/', function(req, res) {
-    console.log('Adding pitcher', req.body);
-    var pitcherToSave = {
+router.post('/:userId', function(req, res) {
+    let userId = req.params.userId;
+    console.log('Adding pitcher', req.body, userId);
+    let pitcherToSave = {
        name: req.body.name,
+       userId: userId,
        statistics: [
            {inningsPitched: req.body.inningsPitched},
            {starts: req.body.starts },

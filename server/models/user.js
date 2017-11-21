@@ -4,12 +4,11 @@ let bcrypt = require('bcrypt');
 let SALT_WORK_FACTOR = 10;
 
 
-let ObjectId = mongoose.Schema.Types.ObjectId;
 // This is the User Schema.
 let UserSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
     password: {type: String, required: true},
-    pitcherId: ObjectId
+    // pitcherId: Schema.Types.ObjectId
 });
 
 // Called before adding a new user to the DB. Encrypts password.

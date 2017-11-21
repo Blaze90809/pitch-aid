@@ -3,16 +3,19 @@ myApp.service('UserService', function($http, $location){
   var self = this;
   self.userObject = {};
   self.pitchers = {data: []};
+  
  
 
   self.getuser = function(){
     console.log('UserService -- getuser');
-    $http.get('/user').then(function(response) {
+    $http.get('/user' ).then(function(response) {
       console.log(response)
         if(response.data.username) {
             // user has a curret session on the server
             self.userObject.userName = response.data.username;
-            console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
+            self.userObject.userId = response.data.userId;
+            console.log('UserService -- getuser -- User Data: ', self.userObject);
+            self.getPitchers();
         } else {
             console.log('UserService -- getuser -- failure');
             // user has no session, bounce them back to the login page
@@ -31,19 +34,22 @@ myApp.service('UserService', function($http, $location){
       $location.path("/home");
     });
   }
-  
+
+
   //This GET route will get the pitcher's names and data
-self.getPitchers = () => {
-  $http.get('/user/getpitchers').then((response) => {
-    pitchers = response.data;
-    console.log(response.data[0].statistics);
-    console.log(response.data[0].statistics[2].strikeouts);
-    self.fantasyPoints(pitchers);
-  }).catch((response) => {
-      console.log('Error getting pitchers')
-  })
-}; //End GET route
-self.getPitchers();
+  self.getPitchers = () => {
+    self.pitchers.data = [];
+    console.log(self.pitchers.data);
+    $http.get('/user/getpitchers').then((response) => {
+      pitchers = response.data;
+      console.log(response.data[0].statistics);
+      console.log(response.data[0].statistics[2].strikeouts);
+      self.fantasyPoints(pitchers);
+    }).catch((response) => {
+        console.log('Error getting pitchers')
+    })
+  }; //End GET route
+  self.getPitchers();
 
 //This is the function that calculates total and average fantasy points per pitcher.
 self.fantasyPoints = (pitchers) => {
@@ -69,8 +75,10 @@ self.fantasyPoints = (pitchers) => {
 
     //This route will POST pitchers to MongoDB.
     self.addPitchers = (pitcher) => {
+      let userId=self.userObject.userId;
+      console.log(userId);
       console.log('Pitcher: ', pitcher);
-      $http.post('/addpitch', pitcher).then((response) => {
+      $http.post('/addpitch/' + userId, pitcher).then((response) => {
           console.log('Pitchers added', response);
           self.pitchers.data = [];
           self.getPitchers();
@@ -79,6 +87,5 @@ self.fantasyPoints = (pitchers) => {
       })
   } //End POST route
 
-
-
+  
 });

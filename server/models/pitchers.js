@@ -18,6 +18,7 @@ let StatisticsSchema = new Schema({
 //This Schema will store the pitchers' information.
 let PitchersSchema = new Schema({
     name: {type: String, required: true},
+    userId: Schema.Types.ObjectId,
     statistics: [StatisticsSchema]
 })
 

@@ -2,17 +2,23 @@ var express = require('express');
 var router = express.Router();
 var Pitchers = require('../models/pitchers.js');
 var path = require('path');
+var userIdIn;
+var mongoose = require('mongoose');
+var ObjectId = require('mongodb').ObjectID
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
+  userIdIn = '';
   console.log('get /user route');
   // check if logged in
   if(req.isAuthenticated()) {
     // send back user object from database
     console.log('logged in', req.user);
     var userInfo = {
-      username : req.user.username
+      username : req.user.username,
+      userId : req.user._id
     };
+    userIdIn = req.user._id;
     res.send(userInfo);
   } else {
     // failure best handled on the server. do redirect here.
@@ -24,11 +30,12 @@ router.get('/', function(req, res) {
 
 //This route will get pitchers from the DB.
 router.get('/getpitchers', function(req, res) {
-  console.log('Get pitchers');
-     Pitchers.find({}, function(err, pitchers){
+  console.log('Get pitchers', userIdIn);
+     Pitchers.find({userId: userIdIn}, function(err, pitchers){
        if(err){
          res.sendStatus(500);
        } else {
+         console.log('Got pitchers: ', pitchers)
          res.send(pitchers);
        }
      })
