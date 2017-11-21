@@ -3,19 +3,22 @@
   <!-- {{ic.userService.pitchers.data}} -->
   <h1>Check out your pitchers</h1>
   <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data">
-      <h2>{{name.name}}</h2>
+    <h2>{{name.name}}</h2>
     <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
-      <b>Innings Pitched:</b> {{name.inningsPitched}},
-      <b>Starts:</b> {{name.statistics[1].starts}},
-      <b>Strikeouts:</b> {{name.statistics[2].strikeouts}},
-      <b>Earned Runs:</b> {{name.statistics[3].earnedRuns}},
-      <b>Walks:</b> {{name.statistics[4].walks}},
-      <b>Wins:</b> {{name.statistics[5].wins}},
-      <b>Losses:</b> {{name.statistics[6].losses}},
-      <b>Hits:</b> {{name.statistics[7].hits}},
-      <b>Total Fantasy Points:</b> {{name.fantasyPoints}},
-      <b>Points Per Start:</b> {{name.averagePoints}}
-    </div>
+    <b>Innings Pitched:</b> {{name.inningsPitched}},
+    <b>Starts:</b> {{name.statistics[1].starts}},
+    <b>Strikeouts:</b> {{name.statistics[2].strikeouts}},
+    <b>Earned Runs:</b> {{name.statistics[3].earnedRuns}},
+    <b>Walks:</b> {{name.statistics[4].walks}},
+    <b>Wins:</b> {{name.statistics[5].wins}},
+    <b>Losses:</b> {{name.statistics[6].losses}},
+    <b>Hits:</b> {{name.statistics[7].hits}},
+    <b>Total Fantasy Points:</b> {{name.fantasyPoints}},
+    <b>Points Per Start:</b> {{name.averagePoints}}
+    <br>
+    <button>Update</button>
+    <button ng-click="ic.deletePitchers(name._id)">Delete</button>
   </div>
-  </p>
+</div>
+</p>
 </div>

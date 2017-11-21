@@ -33,4 +33,17 @@ router.post('/:userId', function(req, res) {
     })
   });
 
+  //This is the delete route for pitchers
+  router.delete('/delete/:id', function (req, res){
+      var id = req.params.id;
+      Pitcher.findByIdAndRemove({"_id": id}, function(err, data){
+          if(err){
+              console.log('Error with delete route');
+              res.sendStatus(500);
+          } else {
+              res.sendStatus(201)
+          }
+      })
+  }) //End delete route
+
 module.exports = router;

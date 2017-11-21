@@ -87,5 +87,14 @@ self.fantasyPoints = (pitchers) => {
       })
   } //End POST route
 
+  self.deletePitchers = (id) => {
+    console.log(id);
+    $http.delete('/addpitch/delete/' + id).then((response) => {
+      console.log('delete success');
+      self.getPitchers();
+    }).catch(function(error) {
+      console.log('Delete fail')
+    })
+  }
   
 });
