@@ -4,8 +4,6 @@ myApp.service('UserService', function($http, $location){
   self.userObject = {};
   self.pitchers = {data: []};
   
- 
-
   self.getuser = function(){
     console.log('UserService -- getuser');
     $http.get('/user' ).then(function(response) {

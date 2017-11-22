@@ -10,57 +10,63 @@
 <div layout="column" ng-cloak="" class="mid-inline-form">
     <md-content layout="column" ng-cloak class="md-inline-form" layout-padding>
         <form ng-submit="uc.addPitchers(pitcher)">
-            <div id="addPitchers" layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm="">
-                    <label>Name </label>
-                    <input type="text" ng-model="pitcher.name">
-                </md-input-container>
+            <div id="addPitchers">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>Name </label>
+                        <input type="text" ng-model="pitcher.name">
+                    </md-input-container>
 
-                <md-input-container flex-gt-xs>
-                    <label>Innings Pitched: </label>
-                    <input type="number" ng-model="pitcher.inningsPitched" />
+                    <md-input-container flex-gt-xs>
+                        <label>Innings Pitched: </label>
+                        <input type="number" ng-model="pitcher.inningsPitched" />
 
-                </md-input-container>
+                    </md-input-container>
 
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Starts: </label>
-                    <input type="number" ng-model="pitcher.starts" />
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Starts: </label>
+                        <input type="number" ng-model="pitcher.starts" />
 
-                </md-input-container>
+                    </md-input-container>
 
 
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Strikeouts: </label>
-                    <input type="number" ng-model="pitcher.strikeouts" />
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Strikeouts: </label>
+                        <input type="number" ng-model="pitcher.strikeouts" />
 
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Earned Runs: </label>
-                    <input type="number" ng-model="pitcher.earnedRuns" />
-    </md-content>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Earned Runs: </label>
+                        <input type="number" ng-model="pitcher.earnedRuns" />
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Walks: </label>
+                        <input type="number" ng-model="pitcher.walks" />
 
-    <md-input-container class="md-block" flex-gt-xs>
-        <label>Walks: </label>
-        <input type="number" ng-model="pitcher.walks" />
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Wins: </label>
+                        <input type="number" ng-model="pitcher.wins" />
 
-    </md-input-container>
-    <md-input-container class="md-block" flex-gt-xs>
-        <label>Wins: </label>
-        <input type="number" ng-model="pitcher.wins" />
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Losses:</label>
+                        <input type="number" ng-model="pitcher.losses" />
 
-    </md-input-container>
-    <md-input-container class="md-block" flex-gt-xs>
-        <label>Losses:</label>
-        <input type="number" ng-model="pitcher.losses" />
-
-    </md-input-container>
-    <md-input-container class="md-block" flex-gt-xs>
-        <label>Hits Allowed: </label>
-        <input type="number" ng-model="pitcher.hits" />
-
-    </md-input-container>
-    <button class="btn btn-primary">Add Listing</button>
-    </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Hits Allowed: </label>
+                        <input type="number" ng-model="pitcher.hits" />
+                    </md-input-container>
+                    <br>
+                </div>
+                <div>
+                        <md-button type="submit" class="md-raised">Add Listing</button>
+                </div>
+            </div>
+        </form>
     </md-content>
 </div>
 
