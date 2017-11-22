@@ -38,7 +38,7 @@ myApp.service('UserService', function($http, $location){
 
   //This GET route will get the pitcher's names and data
   self.getPitchers = () => {
-    self.pitchers.data = [];
+    // self.pitchers.data = [];
     console.log(self.pitchers.data);
     $http.get('/user/getpitchers').then((response) => {
       pitchers = response.data;
@@ -66,7 +66,7 @@ self.fantasyPoints = (pitchers) => {
      pitchers[i].hits = pitchers[i].statistics[7].hits;
      pitchers[i].fantasyPoints = ((pitchers[i].inningsPitched * 3) + (pitchers[i].wins * 5) + (pitchers[i].hits * -1) + (pitchers[i].earnedRuns * -2) + (pitchers[i].losses * -5) + (pitchers[i].strikeouts * 1) + (pitchers[i].walks * -1));
      pitchers[i].averagePoints = (Math.round((pitchers[i].fantasyPoints / pitchers[i].starts) * 10)/10).toFixed(1);
-     self.pitchers.data.push(pitchers[i]);
+     self.pitchers.data = pitchers;
      console.log(self.pitchers.data);
    }
 } //End fantasy pitcher routes.
