@@ -1,9 +1,9 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}. Add your pitchers below.</h1>
+    
 </div>
-<h1>Add your pitcher</h1>
+<!-- <h1>Add your pitcher</h1> -->
 <div id="pitcherAdd" layout="column" ng-cloak="" class="mid-inline-form">
     <md-content layout="column" ng-cloak class="md-inline-form" layout-padding>
         <form name="pitcherForm" ng-submit="uc.addPitchers(uc.pitcher)">
