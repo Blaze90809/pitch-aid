@@ -8,8 +8,8 @@ myApp.controller('UserController', function(UserService) {
 
   vm.addPitchers = (pitcher) => {
     UserService.addPitchers(pitcher);
-    console.log('Pitcher Added')
+    console.log('Pitcher Added');
+    vm.pitcher = '';
   }
-  
 
 });
