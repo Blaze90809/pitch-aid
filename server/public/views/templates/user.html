@@ -1,8 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-
-
-
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
 </div>
@@ -17,46 +14,38 @@
                         <input type="text" ng-model="pitcher.name">
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Innings Pitched: </label>
+                        <label>Innings Pitched </label>
                         <input type="number" ng-model="pitcher.inningsPitched" />
-
                     </md-input-container>
-
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Starts: </label>
+                        <label>Starts </label>
                         <input type="number" ng-model="pitcher.starts" />
-
                     </md-input-container>
-
-
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Strikeouts: </label>
+                        <label>Strikeouts </label>
                         <input type="number" ng-model="pitcher.strikeouts" />
-
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Earned Runs: </label>
+                        <label>Earned Runs </label>
                         <input type="number" ng-model="pitcher.earnedRuns" />
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Walks: </label>
+                        <label>Walks </label>
                         <input type="number" ng-model="pitcher.walks" />
 
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Wins: </label>
+                        <label>Wins </label>
                         <input type="number" ng-model="pitcher.wins" />
-
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Losses:</label>
+                        <label>Losses</label>
                         <input type="number" ng-model="pitcher.losses" />
-
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-xs>
-                        <label>Hits Allowed: </label>
+                        <label>Hits Allowed </label>
                         <input type="number" ng-model="pitcher.hits" />
                     </md-input-container>
                     <br>

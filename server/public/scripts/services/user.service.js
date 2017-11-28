@@ -3,6 +3,7 @@ myApp.service('UserService', function($http, $location){
   var self = this;
   self.userObject = {};
   self.pitchers = {data: []};
+  self.userObj = {selectedIndex: 0};
   
   self.getuser = function(){
     console.log('UserService -- getuser');
@@ -95,4 +96,14 @@ self.fantasyPoints = (pitchers) => {
     })
   }
   
-});
+self.updatePitchers = (pitcher) => {
+  console.log(pitcher);
+  $http.put('/addpitch/update/', pitcher).then((response) => {
+    console.log('Update success');
+    self.getPitchers();
+  }).catch(function(error){
+    console.log('Update fail');
+  })
+}
+
+}); //End User Service

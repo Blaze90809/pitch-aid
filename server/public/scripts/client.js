@@ -31,6 +31,10 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    // .when('/information', {
+    //    templateUrl: '/views/templates/dialog1.html',
+    //    controller: 'DialogController as dc',
+    // })
     .otherwise({
       redirectTo: 'home'
     });

@@ -1,0 +1,67 @@
+<md-dialog aria-label="Edit your pitchers">
+    <!-- <form ng-cloak> -->
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Edit your pitchers</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <form ng-submit="dc.updatePitchers(dc.pitchers)">
+                    <div id="addPitchers">
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm="">
+                                <label>Name </label>
+                                <input type="text" ng-model="dc.pitchers.name">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Innings Pitched </label>
+                                <input type="number" ng-model="dc.pitchers.inningsPitched" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Starts </label>
+                                <input type="number" ng-model="dc.pitchers.starts" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Strikeouts </label>
+                                <input type="number" ng-model="dc.pitchers.strikeouts" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Earned Runs </label>
+                                <input type="number" ng-model="dc.pitchers.earnedRuns" />
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Walks </label>
+                                <input type="number" ng-model="dc.pitchers.walks" />
+
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Wins </label>
+                                <input type="number" ng-model="dc.pitchers.wins" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Losses</label>
+                                <input type="number" ng-model="dc.pitchers.losses" />
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Hits Allowed </label>
+                                <input type="number" ng-model="dc.pitchers.hits" />
+                            </md-input-container>
+                            <br>
+                        </div>
+                        <div>
+                            <md-button type="submit" class="md-raised">Add Listing</md-button>
+                            <md-button class="md-raised" ng-click="dc.hide()">Updates Finished</md-button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </md-dialog-content>
+    <!-- </form> -->
+</md-dialog>

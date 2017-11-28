@@ -86,8 +86,9 @@ li a:hover {
 }
 
 .pitcherDiv {
-  background-color: salmon;
+  background-color: #BFC5F2;
   margin: 20px;
+  padding: 10px;
 }
 
 #addPitchers {
@@ -103,4 +104,8 @@ md-content {
 
 .lead {
   text-align: center;
+}
+
+.pitchInfo {
+  padding: 20px;
 }

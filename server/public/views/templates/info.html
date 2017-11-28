@@ -1,25 +1,27 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <!-- {{ic.userService.pitchers.data}} -->
-  <h1>Check out your pitchers</h1>
-  <p>In 2017, pitchers with at least 15 starts averaged 8.5 fantasy points per start.</p>
-  <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data">
-    <h2>{{name.name}}</h2>
-    <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
-    <b>Innings Pitched:</b> {{name.inningsPitched}},
-    <b>Starts:</b> {{name.statistics[1].starts}},
-    <b>Strikeouts:</b> {{name.statistics[2].strikeouts}},
-    <b>Earned Runs:</b> {{name.statistics[3].earnedRuns}},
-    <b>Walks:</b> {{name.statistics[4].walks}},
-    <b>Wins:</b> {{name.statistics[5].wins}},
-    <b>Losses:</b> {{name.statistics[6].losses}},
-    <b>Hits:</b> {{name.statistics[7].hits}},
-    <b>Total Fantasy Points:</b> {{name.fantasyPoints}},
-    <b>Fantasy Points Per Start:</b> {{name.averagePoints}}
-    <br>
-    <button>Update</button>
-    <button ng-click="ic.deletePitchers(name._id)">Delete</button>
+  <div class="pitchInfo">
+    <h1>Check out your pitchers</h1>
+    <p>In 2017, pitchers with at least 15 starts averaged 8.5 fantasy points per start. Check below to see how your pitchers have scored so far this season.</p>
   </div>
-</div>
-</p>
+  <md-content layout="column">
+    <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data">
+      <h2>{{name.name}}</h2>
+      <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
+      <b>Innings Pitched:</b> {{name.inningsPitched}},
+      <b>Starts:</b> {{name.statistics[1].starts}},
+      <b>Strikeouts:</b> {{name.statistics[2].strikeouts}},
+      <b>Earned Runs:</b> {{name.statistics[3].earnedRuns}},
+      <b>Walks:</b> {{name.statistics[4].walks}},
+      <b>Wins:</b> {{name.statistics[5].wins}},
+      <b>Losses:</b> {{name.statistics[6].losses}},
+      <b>Hits:</b> {{name.statistics[7].hits}},
+      <b>Total Fantasy Points:</b> {{name.fantasyPoints}},
+      <b>Fantasy Points Per Start:</b> {{name.averagePoints}}
+      <br>
+      <md-button class="md-raised" ng-click="ic.showAdvanced($event, $index)">Update</md-button>
+      <md-button class="md-raised" ng-click="ic.deletePitchers(name._id)">Delete</md-button>
+    </div>
+  </md-content>
 </div>

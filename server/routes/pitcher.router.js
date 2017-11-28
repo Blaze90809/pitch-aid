@@ -46,4 +46,34 @@ router.post('/:userId', function(req, res) {
       })
   }) //End delete route
 
+  router.put('/update/', function (req, res){
+    //   let pitcher = req.body;
+      let idIn = req.body._id;
+      let pitcherToSave = {
+        name: req.body.name,
+        userId: req.body.userId,
+        statistics: [
+            {inningsPitched: req.body.inningsPitched},
+            {starts: req.body.starts },
+            {strikeouts: req.body.strikeouts},
+            {earnedRuns: req.body.earnedRuns},
+            {walks: req.body.walks},
+            {wins: req.body.wins},
+            {losses: req.body.losses},
+            {hits: req.body.hits}
+        ]
+     }
+    // console.log(req.body);
+
+      console.log(pitcherToSave, idIn)
+      Pitcher.findByIdAndUpdate(idIn, pitcherToSave, function(err, post){
+          if(err){
+              console.log('Err posting edits');
+              res.sendStatus(500);
+          } else {
+            res.sendStatus(201)
+        }
+      })
+  })
+
 module.exports = router;
