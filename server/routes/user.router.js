@@ -30,7 +30,7 @@ router.get('/', function (req, res) {
 
 //This route will get pitchers from the DB.
 router.get('/getpitchers', function (req, res) {
-  console.log('Get pitchers', userIdIn);
+  // console.log('Get pitchers', userIdIn);
   Pitchers.find({ userId: userIdIn }, function (err, pitchers) {
     if (err) {
       res.sendStatus(500);
