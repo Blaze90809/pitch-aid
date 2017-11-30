@@ -58,16 +58,20 @@ router.post('/:userId', function(req, res) {
         console.log('BODY:', body);
         let APIdata = JSON.parse(body);
         addPitcher(APIdata);
+         
     });
     let addPitcher = (body) => {
         let players = body.cumulativeplayerstats.playerstatsentry;
-    // console.log('Adding pitcher', players);
+    if (players === undefined){
+       console.log('Pitcher not found');
+       res.sendStatus(204);
+       return 204;
+    }
     res.json(players);
-
-    console.log('Games started:' + players[0].stats.HitsAllowed['#text'])
+    // console.log(players);
+    
+    // console.log('Games started:' + players[0].stats.HitsAllowed['#text'])
     let inningsPitched = parseFloat()
-
-
     
     let pitcherToSave = {
        name: players[0].player.FirstName + " " + players[0].player.LastName,
