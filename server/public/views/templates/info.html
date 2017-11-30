@@ -6,7 +6,7 @@
     <p>In 2017, pitchers with at least 15 starts averaged 8.5 fantasy points per start. Check below to see how your pitchers have scored so far this season.</p>
   </div>
   <md-content layout="column">
-    <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data | orderBy:'fantasyPoints'" >
+    <div class="pitcherDiv" ng-repeat="name in ic.userService.pitchers.data | orderBy:'-averagePoints'" >
       <h2>{{name.name}}</h2>
       <!-- <div ng-repeat="stats in ic.userService.pitchers.data"> -->
       <b>Innings Pitched:</b> {{name.inningsPitched}},

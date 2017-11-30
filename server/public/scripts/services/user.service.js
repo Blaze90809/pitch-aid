@@ -64,8 +64,8 @@ myApp.service('UserService', function ($http, $location) {
       pitchers[i].wins = pitchers[i].statistics[5].wins;
       pitchers[i].losses = pitchers[i].statistics[6].losses;
       pitchers[i].hits = pitchers[i].statistics[7].hits;
-      pitchers[i].fantasyPoints = (Math.round(((pitchers[i].inningsPitched * 3) + (pitchers[i].wins * 5) + (pitchers[i].hits * -1) + (pitchers[i].earnedRuns * -2) + (pitchers[i].losses * -5) + (pitchers[i].strikeouts * 1) + (pitchers[i].walks * -1)) * 10) / 10).toFixed(1);
-      pitchers[i].averagePoints = (Math.round((pitchers[i].fantasyPoints / pitchers[i].starts) * 10) / 10).toFixed(1);
+      pitchers[i].fantasyPoints = parseFloat((Math.round(((pitchers[i].inningsPitched * 3) + (pitchers[i].wins * 5) + (pitchers[i].hits * -1) + (pitchers[i].earnedRuns * -2) + (pitchers[i].losses * -5) + (pitchers[i].strikeouts * 1) + (pitchers[i].walks * -1)) * 10) / 10).toFixed(1));
+      pitchers[i].averagePoints = parseFloat((Math.round((pitchers[i].fantasyPoints / pitchers[i].starts) * 10) / 10).toFixed(1));
       self.pitchers.data = pitchers;
       console.log(self.pitchers.data);
     }
