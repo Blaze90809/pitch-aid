@@ -10,6 +10,7 @@ router.post('/:userId', function(req, res) {
     let name = (req.body.firstname + "-" + req.body.lastname);
     // console.log(name)
     
+    //This function calls the MySportsFeeds API.
     (function(callback) {
         'use strict';
        
@@ -50,7 +51,7 @@ router.post('/:userId', function(req, res) {
         request.write("")
         request.end();
         
-    
+    //Logs to check data coming back from MySportsFeeds.
     })((error, statusCode, headers, body) => {
         console.log('ERROR:', error); 
         console.log('STATUS:', statusCode);
@@ -88,7 +89,8 @@ router.post('/:userId', function(req, res) {
        ]
     }
     // console.log(pitcherToSave);
-
+   
+    //This adds pitchers to MongoDB.
     Pitcher.create(pitcherToSave, function(err, post){
         console.log('Create Pitcher');
         if(err){
@@ -101,9 +103,6 @@ router.post('/:userId', function(req, res) {
     })
 }
   });
-
-
-
 
   //This is the delete route for pitchers
   router.delete('/delete/:id', function (req, res){
@@ -118,6 +117,7 @@ router.post('/:userId', function(req, res) {
       })
   }) //End delete route
 
+  //This Put route updates pitchers in MongoDB.
   router.put('/update/', function (req, res){
     //   let pitcher = req.body;
       let idIn = req.body._id;
@@ -146,6 +146,6 @@ router.post('/:userId', function(req, res) {
             res.sendStatus(201)
         }
       })
-  })
+  }) //End Put route.
 
 module.exports = router;
