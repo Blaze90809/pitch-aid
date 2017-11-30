@@ -41,8 +41,8 @@ myApp.service('UserService', function ($http, $location) {
     console.log(self.pitchers.data);
     $http.get('/user/getpitchers').then((response) => {
       pitchers = response.data;
-      console.log(response.data[0].statistics);
-      console.log(response.data[0].statistics[2].strikeouts);
+      // console.log(response.data[0].statistics);
+      // console.log(response.data[0].statistics[2].strikeouts);
       self.fantasyPoints(pitchers);
     }).catch((response) => {
       console.log('Error getting pitchers')
