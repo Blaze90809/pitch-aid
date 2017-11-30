@@ -16,7 +16,7 @@ myApp.controller('UserController', function(UserService, $mdToast) {
     console.log('Toast added')
     $mdToast.show(
       $mdToast.simple()
-      .textContent('Pitcher Added!')
+      .textContent('Listing Sent!')
       .hideDelay(3000)
     )
   }
