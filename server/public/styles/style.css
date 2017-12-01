@@ -110,3 +110,13 @@ md-content {
 .pitchInfo {
   padding: 20px;
 }
+
+#aboutUs {
+  background-color: #FFF9E3;
+  border: 0px;
+  padding: 10px;
+}
+
+.about {
+  font-size: 18px;
+}
