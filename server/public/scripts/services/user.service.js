@@ -8,7 +8,7 @@ myApp.service('UserService', function ($http, $location) {
   self.getuser = function () {
     console.log('UserService -- getuser');
     $http.get('/user').then(function (response) {
-      console.log(response)
+      console.log(response);
       if (response.data.username) {
         // user has a curret session on the server
         self.userObject.userName = response.data.username;
@@ -31,6 +31,8 @@ myApp.service('UserService', function ($http, $location) {
       $http.get('/user/logout').then(function (response) {
         console.log('UserService -- logout -- logged out');
         $location.path("/home");
+        self.userObject.userName = ''
+        self.userObject.userId = '';
       });
     }
 

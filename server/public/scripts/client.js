@@ -31,6 +31,15 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/aboutus', {
+      templateUrl: 'views/templates/technologiesused.html',
+      // controller: 'AboutController as ac',
+      // resolve: {
+      //   getuser : function(UserService){
+      //     return UserService.getuser();
+      //   }
+      // }
+    })
     // .when('/information', {
     //    templateUrl: '/views/templates/dialog1.html',
     //    controller: 'DialogController as dc',

@@ -1,5 +1,5 @@
 <div class="navbar" ng-controller="LogoutController as lc">
-  <div class="container">
+  <div class="container" ng-if="lc.userService.userObject.userName">
     <ul>
       <li>
         <a href="#/user">Add Pitchers</a>
@@ -8,7 +8,10 @@
         <a href="#/info">Watch Pitchers</a>
       </li>
       <li>
-        <a ng-click="lc.userService.logout()">Log Out</a>
+        <a href="#/aboutus">About Us</a>
+      </li>
+      <li>
+        <a href="#/home" ng-click="lc.userService.logout()">Log Out</a>
       </li>
     </ul>
   </div>

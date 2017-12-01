@@ -12,13 +12,14 @@ body, html {
 }
 
 .instructions {
-  height: 300px;
+  height: 250px;
   background-color: #303DA5;
   color: #DDDDDD;
   padding: 15px;
   background-image: url(https://static.pexels.com/photos/139762/pexels-photo-139762.jpeg);
   background-size: 100% auto;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #entryForm {
