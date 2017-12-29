@@ -1,57 +1,45 @@
 # Name of Project
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Pitch Aid is a full-stack web application that gives fantasy baseball players a tool to monitor the starting pitchers they use on their teams. The program enables users to enter their pitchers’ first and last names and uses an API to fill in relevant Major League Baseball statistics. The pitcher statistics are stored in MongoDB by ID, which means registered users only have the option to view the specific pitchers they have entered.
 
 ## Built With
 
-List technologies and frameworks here
+- [x] AngularJS
+- [x] Express
+- [x] Node.js
+- [x] MongoDB
+- [x] Mongoose
+- [x] Angular Material
+- [x] ES6
+- [x] MySportsFeeds API
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To get started on your local computer, fork or clone the Pitch Aid repository. In the command line, run npm install followed by npm start. The application should be available at http://localhost:5000.
 
 ### Prerequisites
 
-Link to software that is required to install the app (e.g. node).
-
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
-
-
-### Installing
-
-Steps to get the development environment running.
-
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
 
 ### Completed Features
 
 High level list of items completed.
 
-- [x] Feature a
-- [x] Feature b
+- [x] Write framework of application with views to add and view pitchers.
+- [x] Use MySportsFeed API to automatically include pitchers' statistics.
+- [x] Use AngularMaterial to style the application.
 
 ### Next Steps
 
-Features that you would like to add at some point in the future.
+Features to ad in the future:
 
-- [ ] Feature c
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+- [ ] Include charts on pitcher view to help users compare their pitchers' performances with league-average pitchers.
 
 ## Authors
 
-* Name of author(s)
+* Blaze Fugina
 
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* Thanks to MySportsFeeds to give developers access to their sports APIs for software development purposes.
