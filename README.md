@@ -1,6 +1,6 @@
 # Name of Project
 
-Pitch Aid is a full-stack web application that gives fantasy baseball players a tool to monitor the starting pitchers they use on their teams. The program enables users to enter their pitchers’ first and last names and uses an API to fill in relevant Major League Baseball statistics. The pitcher statistics are stored in MongoDB by ID, which means registered users only have the option to view the specific pitchers they have entered.
+Pitch Aid is a full-stack web application that gives fantasy baseball players a tool to monitor the starting pitchers they use on their teams. The program enables users to enter their pitchers’ first and last names and uses an API to fill in relevant Major League Baseball statistics. The pitcher statistics are stored in MongoDB by ID, which means registered users only have the option to view the specific pitchers they have entered. The application is also deployed at http://pitch-aid.herokuapp.com/#/home.
 
 ## Built With
 
@@ -19,7 +19,8 @@ To get started on your local computer, fork or clone the Pitch Aid repository. I
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/)
+- Node.js.
+- MONGODB.
 
 ### Completed Features
 
