@@ -24,21 +24,28 @@ router.get('/', function (req, res) {
     // failure best handled on the server. do redirect here.
     console.log('not logged in');
     // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
-    res.send(false);
+    res.sendStatus(403);
   }
 });
 
 //This route will get pitchers from the DB.
 router.get('/getpitchers', function (req, res) {
   // console.log('Get pitchers', userIdIn);
-  Pitchers.find({ userId: userIdIn }, function (err, pitchers) {
-    if (err) {
-      res.sendStatus(500);
-    } else {
-      console.log('Got pitchers: ', pitchers)
-      res.send(pitchers);
-    }
-  })
+  if (req.isAuthenticated()) {
+    Pitchers.find({ userId: userIdIn }, function (err, pitchers) {
+      if (err) {
+        res.sendStatus(500);
+      } else {
+        console.log('Got pitchers: ', pitchers)
+        res.send(pitchers);
+      }
+    })
+  } else {
+    // failure best handled on the server. do redirect here.
+    console.log('not logged in');
+
+    res.sendStatus(403);
+  }
 }); //End Pitchers route.
 
 // clear all server session information about this user
