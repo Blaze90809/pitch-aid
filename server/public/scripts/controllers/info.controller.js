@@ -6,13 +6,12 @@ myApp.controller('InfoController', function(UserService, $mdDialog, $interval) {
 
   vm.deletePitchers = (id) => {
     UserService.deletePitchers(id);
-    console.log('function');
+
   }
 
   vm.showAdvanced = function (ev, i) {
     UserService.userObj.selectedIndex = i;
-    console.log('Clicked Dialog', i);
-    console.log(vm.userObj.selectedIndex);
+
 
     $mdDialog.show({
         controller: 'DialogController as dc',

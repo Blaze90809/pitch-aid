@@ -8,10 +8,10 @@ myApp.controller('DialogController', function (UserService, $mdDialog, $interval
     vm.populatePitchers = (userObj) => {
        let index = vm.userObj.selectedIndex;
         vm.pitchers = vm.userService.pitchers.data[index];
-        console.log(vm.pitchers);
+
     }
     vm.populatePitchers();
-    console.log(vm.pitchers)
+
 
     vm.updatePitchers = (pitcher) => {
         UserService.updatePitchers(pitcher);
